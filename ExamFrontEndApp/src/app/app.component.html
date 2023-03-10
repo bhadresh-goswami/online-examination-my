@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="block">
+        <button class="button is-primary" type="button" (click)="onSubmit()" [disabled]="isSubmitted">Submit!</button>
+    </div>
+<div class="columns is-widescreen">
+<table class="table is-fullwidth">
+    <tr>
+        <td>
+            Attempt
+        </td>
+        <td>
+            Not Attempt
+        </td>        
+        <td>
+            Right Answers
+        </td>
+        <td>
+            Wrong Answers
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{attempt}}
+        </td>
+        <td>
+            {{notAttempt}}
+        </td>
+        <td>
+            <span class="tag is-success">  {{trueAns}}</span>
+        </td>
+        <td>
+            <span class="tag is-danger"> {{wrongAns}}</span>
+        </td>
+    </tr>
+</table>
+</div>
+
+
+
+<div class="columns is-widescreen">
+
+</div>
+<app-timer (timeup)="onSubmit()" [stopTimer]="isSubmitted"></app-timer>
+<div class="columns is-widescreen" *ngFor="let question of questionModelObj;let i = index" class="container is-widescreen	block">
+    <div class="box">
+        <app-exam-questions (getModelObj) = "resetObject($event,i)" [questionObj]="question" [isSubmitted]="isSubmitted"></app-exam-questions>
+    </div>
+</div>
+
+<div class="block">
+    <button class="button is-primary" type="button" (click)="onSubmit()"  [disabled]="isSubmitted">Submit!</button>
+</div>
+
+</div>

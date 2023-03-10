@@ -1,0 +1,51 @@
+
+<div class="block"  [ngClass]="{'message is-danger md-0': isSubmitted && questionObj.score ==0, 'message is-success md-0':isSubmitted && questionObj.score ==1  }">
+<table class="table is-fullwidth">
+    <tr>
+    </tr>
+    <tr>
+        <td>
+            <h3 class="title is-3"  [ngClass]="{'message-header': isSubmitted}">
+                Que.{{questionObj.questionTitle}} 
+            </h3>
+            <br>
+            {{isSubmitted}} && {{ questionObj.score }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <input type="radio" (change)="selectedOption('A')" name="{{questionObj.Id}}"/> A)
+                    </td>
+                    <td>
+                        {{questionObj.optionA}}
+                    </td>
+                    <td>
+                        <input type="radio" (change)="selectedOption('B')" name="{{questionObj.Id}}"/> B)
+                    </td>
+                    <td>
+                        {{questionObj.optionB}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" (change)="selectedOption('C')" name="{{questionObj.Id}}"/> C)
+                    </td>
+                    <td>
+                        {{questionObj.optionC}}
+                    </td>
+                    <td>
+                        <input type="radio" (change)="selectedOption('D')" name="{{questionObj.Id}}"/> D)
+                    </td>
+                    <td>
+                        {{questionObj.optionD}}
+                    </td>
+                </tr>
+                
+            </table>
+        </td>
+    </tr>
+</table>
+</div>
